@@ -12,19 +12,27 @@
 
     <input type="text" name="name" placeholder="name" v-model="nametype"/>
     <div>{{nameWarning}}</div>
-<toggle v-for="item in list" v-bind:name='list.name' v-bind:codename="list.codename" ></toggle>
-
 
 
     <input type="text" name="email" placeholder="youremail@gmail.com" v-model="email"/>
     <div>{{emailWarning}}</div>
-    <toggle v-for="item in list" v-bind:name='list.name' v-bind:codename="list.codename" ></toggle>
+
+
+
+    <div class="item" v-for="item in items" v-on:click="item.show=!item.show">
+        <div class="side1" v-bind:class="{hide:item.show}">
+            <h1>{{item.name}}</h1>
+        </div>
+
+        <div class="item" v-bind:class="{hide: !item.show}">
+            <h1>{{item.codename}}</h1>
+        </div>
+  </div>
+
 
 </div>
 
-<div id="thing">
-    <toggle v-for="names in codename" v-bind:name="names.name" v-bind:codeName="names.codename"></toggle>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 <script src="vue.js"></script>
 <script src="app.js"></script>
